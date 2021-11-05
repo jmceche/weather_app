@@ -34,6 +34,7 @@ const DailyForecast = ({ forecastWeather }) => {
             feel={day.feels_like}
             humidity={day.humidity}
             weather={day.weather}
+            pressure={day.pressure}
           />
         ))}
       </Grid>

@@ -1,12 +1,23 @@
 import React, { useState } from "react";
 import { countryList } from "../countryList";
-import { Button, Grid, TextField, Select } from "@material-ui/core";
+import {
+  Button,
+  Grid,
+  TextField,
+  Select,
+  Link,
+  Typography,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import ToggleTemp from "./ToogleTemp";
 
 const useStyles = makeStyles((theme) => ({
   inputs: {
     background: "#ddd",
     borderRadius: "5px",
+  },
+  selected: {
+    color: "#aaa",
   },
 }));
 
@@ -32,6 +43,13 @@ const SearchWeather = ({
     });
   };
 
+  const [temp, setTemp] = useState({
+    celsius: true,
+    fahr: false,
+  });
+
+  const { celsius, fahr } = temp;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputCountryCode.trim() === "" || inputCity.trim() === "") {
@@ -40,6 +58,10 @@ const SearchWeather = ({
       searchWeatherData(inputCity, inputCountryCode);
     }
   };
+
+  const handleCelsius = () => {};
+
+  const handleFahr = () => {};
 
   return (
     <>
@@ -72,6 +94,9 @@ const SearchWeather = ({
               onChange={handleChange}
               className={classes.inputs}
             />
+          </Grid>
+          <Grid item>
+            <ToggleTemp />
           </Grid>
           <Grid item>
             <Button

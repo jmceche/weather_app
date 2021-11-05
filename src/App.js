@@ -78,7 +78,7 @@ function App() {
 
   useEffect(() => {
     if (city.length > 0) {
-      searchWeatherData(city, countryCode);
+      //searchWeatherData(city, countryCode);
     }
   }, [city, countryCode, searchWeatherData]);
 
